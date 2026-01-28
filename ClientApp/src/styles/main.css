@@ -1,0 +1,43 @@
+/* Global styles for the freight quotation system */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Custom spacing utilities */
+.gap-4 {
+  gap: 1rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* Main content padding */
+.main-content {
+  padding: 24px;
+}
+
+/* Card hover effect */
+.v-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.v-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column;
+  }
+  
+  .gap-4 {
+    gap: 0.5rem;
+  }
+}
