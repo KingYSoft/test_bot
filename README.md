@@ -1,121 +1,80 @@
-# Vue 3 + Vuetify 3 + TypeScript + .NET 8.0 Application
+# 空运海运费用报价系统
 
-This project demonstrates a full-stack application using Vue 3 with Vuetify 3 for the frontend and .NET 8.0 for the backend.
+这是一个基于 Vue 3 + Vuetify 3 + Vite + .NET 8.0 的空运海运费用报价系统。
 
-## Tech Stack
+## 功能特性
 
-- **Frontend**: Vue 3, TypeScript, Vuetify 3, Vue Router
-- **Backend**: .NET 8.0 Web API
-- **State Management**: Vue Composition API
-- **HTTP Client**: Axios
+- 供应商管理
+- 报价单创建与管理
+- 邮件通知供应商
+- 供应商在线确认/拒绝报价
+- 报价单状态跟踪
 
-## Project Structure
+## 技术栈
+
+- **前端**: Vue 3, TypeScript, Vuetify 3, Vue Router, Pinia
+- **后端**: .NET 8.0 Web API, Entity Framework Core
+- **数据库**: SQL Server
+- **构建工具**: Vite
+
+## 项目结构
 
 ```
-project-root/
-├── vue-app/                 # Vue 3 frontend application
+FreightQuotationSystem/
+├── ClientApp/                 # Vue3前端应用
 │   ├── src/
-│   │   ├── components/      # Reusable Vue components
-│   │   ├── views/           # Page-level components
-│   │   ├── composables/     # Reusable logic
-│   │   ├── router/          # Vue Router configuration
-│   │   └── types/           # TypeScript type definitions
-│   ├── package.json         # Frontend dependencies
-│   └── vite.config.ts       # Vite build configuration
-└── dotnet-api/              # .NET 8.0 backend API
-    ├── Controllers/         # API controllers
-    ├── Models/              # Data models
-    ├── Services/            # Business logic services
-    ├── Program.cs           # Application startup
-    └── dotnet-api.csproj    # .NET project file
+│   │   ├── components/       # Vue组件
+│   │   ├── composables/      # 组合式API逻辑
+│   │   ├── layouts/          # 页面布局
+│   │   ├── pages/            # 页面组件
+│   │   ├── router/           # 路由配置
+│   │   └── stores/           # Pinia状态管理
+│   ├── package.json          # 前端依赖
+│   └── vite.config.js        # Vite构建配置
+├── Server/
+│   ├── FreightQuotation.API/ # .NET 8.0后端API
+│   │   ├── Controllers/      # API控制器
+│   │   ├── Data/             # 数据访问层
+│   │   ├── Models/           # 数据模型
+│   │   ├── Services/         # 业务逻辑服务
+│   │   └── DTOs/             # 数据传输对象
+│   └── FreightQuotation.Shared/ # 共享模型
 ```
 
-## Setup Instructions
+## 快速开始
 
-### Prerequisites
+### 环境要求
 
-- Node.js 18+ (for Vue frontend)
-- .NET 8.0 SDK (for backend API)
-- npm or yarn package manager
+- Node.js 18+
+- .NET 8.0 SDK
+- SQL Server
 
-### Frontend Setup
+### 开发设置
 
-1. Navigate to the Vue app directory:
+1. 克隆项目
+2. 安装前后端依赖
+3. 配置数据库连接字符串
+4. 启动前后端服务
+
+### 前端启动
+
 ```bash
-cd vue-app
-```
-
-2. Install dependencies:
-```bash
+cd ClientApp
 npm install
-```
-
-3. Start the development server:
-```bash
 npm run dev
 ```
 
-The frontend will be available at http://localhost:3000
+### 后端启动
 
-### Backend Setup
-
-1. Navigate to the .NET API directory:
 ```bash
-cd dotnet-api
-```
-
-2. Restore packages:
-```bash
-dotnet restore
-```
-
-3. Run the API:
-```bash
+cd Server/FreightQuotation.API
 dotnet run
 ```
 
-The API will be available at http://localhost:5000
+## 系统架构
 
-## API Endpoints
-
-The .NET API provides the following endpoints:
-
-- `GET /api/test` - Test endpoint
-- `GET /api/sample` - Get all samples
-- `GET /api/sample/{id}` - Get sample by ID
-- `POST /api/sample` - Create a new sample
-- `PUT /api/sample/{id}` - Update an existing sample
-- `DELETE /api/sample/{id}` - Delete a sample
-
-## Development Features
-
-- Hot module replacement for Vue components
-- Type checking with TypeScript
-- Material Design components with Vuetify
-- API proxy configured in Vite
-- CORS enabled for local development
-
-## Building for Production
-
-### Frontend
-
-```bash
-npm run build
-```
-
-### Backend
-
-```bash
-dotnet publish -c Release -o ./publish
-```
-
-## Testing API Connection
-
-The home page includes a "Test API Connection" button that calls the `/api/test` endpoint to verify communication between the frontend and backend.
-
-## File Structure Notes
-
-- The Vue app proxies API requests from `/api` to the .NET backend during development
-- TypeScript interfaces are used throughout for type safety
-- Composables provide reusable business logic
-- Vuetify components implement Material Design principles
+- RESTful API 设计
+- JWT 身份验证
+- 数据库迁移
+- 邮件服务集成
+- 响应式UI设计
